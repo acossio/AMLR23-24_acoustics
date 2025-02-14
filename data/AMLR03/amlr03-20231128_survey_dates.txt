@@ -1,0 +1,5 @@
+start survey: 12/1/23 14:06
+end survey: 1/4/24 12:29
+
+d_ST = '2023-12-01 14:06'; % survey start time and date
+d_ED = '2024-01-04 12:29'; % survey end time and date
