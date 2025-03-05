@@ -1,4 +1,4 @@
-%% 70 kHz school survey data
+%% 70 kHz survey data
 
 
 amlr03 = load('C:\Github\AMLR23-24_acoustics\data\AMLR03\70kHz\gridded_AMLR03_2023-24_70kHz_survey_5m.mat');
@@ -57,7 +57,7 @@ m_04_bci = bootci(1000,@mean,outdata_04(:,3)); % bootstrap confidence intervals
 mean03 = mean(m_03_b)
 mean04 = mean(m_04_b)
 
-%% 120 kHz school survey data
+%% 120 kHz  survey data
 clear
 
 amlr03 = load('C:\Github\AMLR23-24_acoustics\data\AMLR03\120kHz\gridded_AMLR03_2023-24_120kHz_survey_5m.mat');
