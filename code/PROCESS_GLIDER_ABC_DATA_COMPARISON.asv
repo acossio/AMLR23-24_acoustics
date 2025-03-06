@@ -118,7 +118,7 @@ m_03_bci = bootci(1000,@mean,outdata_03(:,3)); % bootstrap confidence intervals
 m_04_bci = bootci(1000,@mean,outdata_04(:,3)); % bootstrap confidence intervals
 
 mean03_120sur = mean(m_03_b)
-mean04_120sur = mean(m_04_b)
+mean04_120_sur = mean(m_04_b)
 
 %% 70khz Schools analysis survey data
 
@@ -237,13 +237,13 @@ m_03_bci = bootci(1000,@mean,outdata_03(:,3)); % bootstrap confidence intervals
 m_04_bci = bootci(1000,@mean,outdata_04(:,3)); % bootstrap confidence intervals
 
 mean03_120sur_school = mean(m_03_b)
-mean04_120sur_school = mean(m_04_b)
+mean04_120_sur_school = mean(m_04_b)
 
 %%%%%%%%%%%
 %% Full data set 
 %% 70 kHz full data
 
-clear
+
 amlr03 = load('C:\Github\AMLR23-24_acoustics\data\AMLR03\70kHz\gridded_AMLR03_2023-24_70kHz_5m.mat');
 
 amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\70kHz\gridded_AMLR04_2023-24_70kHz_5m.mat');
@@ -254,8 +254,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\70kHz\gridded_AMLR04_20
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC,"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC,"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -287,8 +287,8 @@ legend('AMLR03','AMLR04')
 int_abc_03 = int_abc_03*CF; %convert ABC to g/m2
 int_abc_04 = int_abc_04*CF;
 
-[outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc.glider_latitude, amlr04.gridded_glider_abc.glider_longitude, int_abc_04,1);
-[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude, amlr03.gridded_glider_abc.glider_longitude, int_abc_03,1);
+[outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc_survey.glider_latitude, amlr04.gridded_glider_abc_survey.glider_longitude, int_abc_04,1);
+[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc_survey.glider_latitude, amlr03.gridded_glider_abc_survey.glider_longitude, int_abc_03,1);
 
 
 m_03_b = bootstrp(1000,@mean,outdata_03(:,3)); % bootstrap
@@ -313,8 +313,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\120kHz\gridded_AMLR04_2
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC,"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC,"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -323,7 +323,7 @@ load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
 CF = UFF{9,4};
 
 
-figure(26)
+figure(6)
 %subplot(2,1,1)
 edges = [-9:0.5:-4];
 histogram(log10(int_abc_03),edges,'Normalization','pdf','FaceColor','k', 'FaceAlpha',0.4)
@@ -334,7 +334,7 @@ legend('AMLR03','AMLR04')
 xlabel ('Log10 ABC')
 ylabel('120 kHz (PDF)')
 
-figure(27)
+figure(7)
 %subplot(2,1,1)
 edges = [-9:0.5:-4];
 ecdf(log10(int_abc_03))%,edges,'Normalization','pdf','FaceColor','k', 'FaceAlpha',0.4)
@@ -346,8 +346,8 @@ legend('AMLR03','AMLR04')
 int_abc_03 = int_abc_03*CF; %convert ABC to g/m2
 int_abc_04 = int_abc_04*CF;
 
-[outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc.glider_latitude, amlr04.gridded_glider_abc.glider_longitude, int_abc_04,1);
-[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude, amlr03.gridded_glider_abc.glider_longitude, int_abc_03,1);
+[outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc_survey.glider_latitude, amlr04.gridded_glider_abc_survey.glider_longitude, int_abc_04,1);
+[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc_survey.glider_latitude, amlr03.gridded_glider_abc_survey.glider_longitude, int_abc_03,1);
 
 
 m_03_b = bootstrp(1000,@mean,outdata_03(:,3)); % bootstrap
@@ -356,5 +356,5 @@ m_04_b = bootstrp(1000,@mean,outdata_04(:,3)); % bootstrap
 m_03_bci = bootci(1000,@mean,outdata_03(:,3)); % bootstrap confidence intervals
 m_04_bci = bootci(1000,@mean,outdata_04(:,3)); % bootstrap confidence intervals
 
-mean03_120full = mean(m_03_b)
-mean04_120full = mean(m_04_b)
+mean03_120sur = mean(m_03_b)
+mean04_120_sur = mean(m_04_b)
