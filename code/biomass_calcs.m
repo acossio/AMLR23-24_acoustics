@@ -16,7 +16,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -43,7 +43,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -70,7 +70,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -96,7 +96,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -123,7 +123,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -150,7 +150,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -177,7 +177,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -204,7 +204,7 @@ clean_idx = gridded_glider_abc_survey.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -228,7 +228,7 @@ clean_idx = gridded_glider_abc.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -256,7 +256,7 @@ clean_idx = gridded_glider_abc.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -284,7 +284,7 @@ clean_idx = gridded_glider_abc.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
@@ -310,7 +310,7 @@ clean_idx = gridded_glider_abc.ABC(50:end,:);
 clean_idx(clean_idx>1.0e-07) = NaN;
 clean(50:end,:) = clean_idx;
 
-nasc_int = sum(clean,"omitnan");
+nasc_int = sum(clean(1:50,:), "omitnan"); % for first 250m only
 gm2 = nasc_int*CF;
 gm2_std = std(gm2) % standard deviation
 gm2_ste = std(gm2)/sqrt(length(gm2)) % standard error
