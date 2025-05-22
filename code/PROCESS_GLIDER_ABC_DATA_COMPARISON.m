@@ -15,8 +15,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\70kHz\gridded_AMLR04_20
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC(1:50,:),"omitnan"); %integrate to 250m
+int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -74,8 +74,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\120kHz\gridded_AMLR04_2
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -134,8 +134,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\70kHz\gridded_AMLR04_AM
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -193,8 +193,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\120kHz\gridded_AMLR04_A
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc_survey.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -254,8 +254,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\70kHz\gridded_AMLR04_20
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc.ABC(1:50,2:end),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -288,7 +288,7 @@ int_abc_03 = int_abc_03*CF; %convert ABC to g/m2
 int_abc_04 = int_abc_04*CF;
 
 [outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc.glider_latitude, amlr04.gridded_glider_abc.glider_longitude, int_abc_04,1);
-[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude, amlr03.gridded_glider_abc.glider_longitude, int_abc_03,1);
+[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude(2:end), amlr03.gridded_glider_abc.glider_longitude(2:end), int_abc_03,1);
 
 
 m_03_b = bootstrp(1000,@mean,outdata_03(:,3)); % bootstrap
@@ -313,8 +313,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\120kHz\gridded_AMLR04_2
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc.ABC(1:50,2:end),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -347,7 +347,7 @@ int_abc_03 = int_abc_03*CF; %convert ABC to g/m2
 int_abc_04 = int_abc_04*CF;
 
 [outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc.glider_latitude, amlr04.gridded_glider_abc.glider_longitude, int_abc_04,1);
-[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude, amlr03.gridded_glider_abc.glider_longitude, int_abc_03,1);
+[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude(2:end), amlr03.gridded_glider_abc.glider_longitude(2:end), int_abc_03,1);
 
 
 m_03_b = bootstrp(1000,@mean,outdata_03(:,3)); % bootstrap
@@ -374,8 +374,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\70kHz\gridded_AMLR04_AM
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc.ABC(1:50,2:end),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -408,7 +408,7 @@ int_abc_03 = int_abc_03*CF; %convert ABC to g/m2
 int_abc_04 = int_abc_04*CF;
 
 [outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc.glider_latitude, amlr04.gridded_glider_abc.glider_longitude, int_abc_04,1);
-[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude, amlr03.gridded_glider_abc.glider_longitude, int_abc_03,1);
+[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude(2:end), amlr03.gridded_glider_abc.glider_longitude(2:end), int_abc_03,1);
 
 
 m_03_b = bootstrp(1000,@mean,outdata_03(:,3)); % bootstrap
@@ -433,8 +433,8 @@ amlr04 = load('C:\Github\AMLR23-24_acoustics\data\AMLR04\120kHz\gridded_AMLR04_A
 %int_abc_03=nansum(amlr03.data.ABC,1);
 %int_abc_04=nansum(amlr04.data.ABC,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-int_abc_03 = sum(amlr03.gridded_glider_abc.ABC,"omitnan");
-int_abc_04 = sum(amlr04.gridded_glider_abc.ABC,"omitnan");
+int_abc_03 = sum(amlr03.gridded_glider_abc.ABC(1:50,2:end),"omitnan");
+int_abc_04 = sum(amlr04.gridded_glider_abc.ABC(1:50,:),"omitnan");
 
 % load penguin conversion factors 
 load('C:\Github\AMLR23-24_acoustics\data\CF_2023-24_penguin.mat')
@@ -467,7 +467,7 @@ int_abc_03 = int_abc_03*CF; %convert ABC to g/m2
 int_abc_04 = int_abc_04*CF;
 
 [outdata_04]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr04.gridded_glider_abc.glider_latitude, amlr04.gridded_glider_abc.glider_longitude, int_abc_04,1);
-[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude, amlr03.gridded_glider_abc.glider_longitude, int_abc_03,1);
+[outdata_03]=BOOSTRP_SPATIAL_GLIDER_ESTIMATES(amlr03.gridded_glider_abc.glider_latitude(2:end), amlr03.gridded_glider_abc.glider_longitude(2:end), int_abc_03,1);
 
 
 m_03_b = bootstrp(1000,@mean,outdata_03(:,3)); % bootstrap
@@ -476,5 +476,5 @@ m_04_b = bootstrp(1000,@mean,outdata_04(:,3)); % bootstrap
 m_03_bci = bootci(1000,@mean,outdata_03(:,3)); % bootstrap confidence intervals
 m_04_bci = bootci(1000,@mean,outdata_04(:,3)); % bootstrap confidence intervals
 
-mean03_120full = mean(m_03_b)
-mean04_120full = mean(m_04_b)
+mean03_120fullS = mean(m_03_b)
+mean04_120fullS = mean(m_04_b)
